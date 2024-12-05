@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class player : MonoBehaviour
 {
@@ -12,14 +14,17 @@ public class player : MonoBehaviour
     private int spriteIndex;
     public float gravity = -9.8f;
     public float strength = 5f;
-
+    public AudioClip hitSFX;
+    private AudioSource playerAudio;
+    public int coinCount = 0;
+    public Text coinText;
     private GameManager gameManager;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
-
+        playerAudio = GetComponent<AudioSource>();
     }
 
 
@@ -70,11 +75,20 @@ public class player : MonoBehaviour
     {
         if(other.gameObject.tag == "Obstacle")
         {
+            playerAudio.PlayOneShot(hitSFX,2.0f);
             FindObjectOfType<GameManager>().GameOver();
         }
         else if (other.gameObject.tag == "Scoring")
         {
             gameManager.IncreaseScore();
+        }
+        else if (other.CompareTag("Coin"))
+        {
+            coinCount++;
+            coinText.text = "Coins: " + coinCount;
+            Destroy(other.gameObject);
+            PlayerPrefs.SetInt("Coins", coinCount);
+            PlayerPrefs.Save();
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pipes : MonoBehaviour
 {
-    public float speed = 5f;
+    public static float speed;
     private float leftEdge;
     
     private void Start()

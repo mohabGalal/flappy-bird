@@ -22,5 +22,16 @@ public class Spawner : MonoBehaviour
         GameObject pipes = Instantiate(prefab,transform.position,Quaternion.identity);
         pipes.transform.position += Vector3.up * Random.Range(minHieght,maxHieght);
     }
+    private void Update()
+    {
+        if(GameManager.hardMode == true)
+        {
+            Pipes.speed = 10;
+        }
+        else
+        {
+            Pipes.speed = 6;
+        }
+    }
 
 }
