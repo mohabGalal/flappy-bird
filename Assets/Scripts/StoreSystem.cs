@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,7 +40,13 @@ public class StoreSystem : MonoBehaviour
             {
                 characters[i].isOwned = false;
             }
+            for (int j = 0; j < 2; j++)
+            {
+                store.GetChild(i).GetChild(j).gameObject.SetActive(!characters[i].isOwned);
+            }
+            
         }
+
     }
 
     public void TryBue(int number)
@@ -57,7 +64,7 @@ public class StoreSystem : MonoBehaviour
 
             for (int i = 0; i < 2; i++)
             {
-                store.GetChild(number + 1).GetChild(i).gameObject.SetActive(false);
+                store.GetChild(number).GetChild(i).gameObject.SetActive(false);
             }
         }
     }

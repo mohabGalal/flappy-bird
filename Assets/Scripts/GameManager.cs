@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public GameObject win;
     public GameObject level1;
     public GameObject level2;
+    public GameObject storeItem1;
+    public GameObject storeItem2;
+    public GameObject storeItem3;
     public GameObject level2Lock;
     public GameObject level2Price;
     public Button level22;
@@ -55,6 +58,9 @@ public class GameManager : MonoBehaviour
         restartButton.SetActive(false);
         level1.SetActive(false);
         level2.SetActive(false);
+        storeItem1.SetActive(false);
+        storeItem2.SetActive(false);
+        storeItem3.SetActive(false);
         getReady.SetActive(false);
         gameOver.SetActive(false);
         playButton.SetActive(false);
