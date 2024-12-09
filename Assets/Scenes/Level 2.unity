@@ -425,8 +425,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 128, y: -19}
-  m_SizeDelta: {x: 818.8045, y: 323.4413}
+  m_AnchoredPosition: {x: 14.799, y: 33.505863}
+  m_SizeDelta: {x: 592.4, y: 218.4297}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &54696852
 MonoBehaviour:
@@ -2663,7 +2663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: -9.8
   strength: 5
-  hitSFX: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+  hitSFX: {fileID: 8300000, guid: 8d8ec91004c6d714888b5bcbaf85481c, type: 3}
+  coinSFX: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
   coinText: {fileID: 2113139181}
 --- !u!50 &977262707
 Rigidbody2D:
@@ -4479,7 +4480,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 031e9ec546a8b2049b505465180f0bcf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adcd152174b5ecd4c951acc736288962, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5221,16 +5222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a6d5b123ef06c4ab8a66ff73b635a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprite: {fileID: 1744067671}
+  playerSprite: {fileID: 977262708}
   store: {fileID: 1249451228}
   characters:
-  - sprite: {fileID: 21300000, guid: 71a3cd27bd68c87439040a91ade8535f, type: 3}
+  - sprite: {fileID: 21300000, guid: f58bcda1863df6e4aacb979289e21f81, type: 3}
     price: 20
     isOwned: 0
-  - sprite: {fileID: 21300000, guid: 5e70fbcaf8af71b43a844296bbe16ae8, type: 3}
+  - sprite: {fileID: 21300000, guid: 26615fc8e1de49d4c9b455356904a32e, type: 3}
     price: 40
     isOwned: 0
-  - sprite: {fileID: 21300000, guid: 07592067dbd7a484fae429f4017d608a, type: 3}
+  - sprite: {fileID: 21300000, guid: e65608bae7933984db07f625e68338cc, type: 3}
     price: 60
     isOwned: 0
   player: {fileID: 977262705}
@@ -5506,8 +5507,7 @@ MonoBehaviour:
   spawnRate: 0.5
   minHieght: 0
   maxHieght: 2
-  coinminHieght: 0.7
-  coinmaxHieght: 0.8
+  gapSize: 2
 --- !u!4 &2138877174
 Transform:
   m_ObjectHideFlags: 0

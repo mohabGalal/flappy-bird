@@ -8,27 +8,33 @@ public class Spawner : MonoBehaviour
     public float spawnRate;
     public float minHieght;
     public float maxHieght;
-    public float coinminHieght;
-    public float coinmaxHieght;
+    public float gapSize = 2;
 
     private void OnEnable()
     {
-        InvokeRepeating("Spawn",spawnRate,spawnRate);
+        InvokeRepeating("Spawn", spawnRate, spawnRate);
     }
+
     private void OnDisable()
     {
         CancelInvoke("Spawn");
     }
+
     private void Spawn()
     {
-        GameObject pipes = Instantiate(prefab[0],transform.position,Quaternion.identity);
-        GameObject coin = Instantiate(prefab[1],transform.position,Quaternion.identity);
-        pipes.transform.position += Vector3.up * Random.Range(minHieght,maxHieght);
-        coin.transform.position += Vector3.up * Random.Range(coinminHieght,coinmaxHieght);
+        GameObject pipes = Instantiate(prefab[0], transform.position, Quaternion.identity);
+        float pipeHeight = Random.Range(minHieght, maxHieght);
+        pipes.transform.position += Vector3.up * pipeHeight;
+
+        GameObject coin = Instantiate(prefab[1], transform.position, Quaternion.identity);
+
+        float randomYOffset = Random.Range(-gapSize / 2f, gapSize / 2f);
+        coin.transform.position += Vector3.up * (pipeHeight + randomYOffset);
     }
+
     private void Update()
     {
-        if(GameManager.hardMode == true)
+        if (GameManager.hardMode == true)
         {
             Pipes.speed = 10;
         }
@@ -37,5 +43,4 @@ public class Spawner : MonoBehaviour
             Pipes.speed = 6;
         }
     }
-
 }

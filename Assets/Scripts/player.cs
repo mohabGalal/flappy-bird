@@ -16,6 +16,7 @@ public class player : MonoBehaviour
     public float gravity = -9.8f;
     public float strength = 5f;
     public AudioClip hitSFX;
+    public AudioClip coinSFX;
     private AudioSource playerAudio;
     public static int coinCount = 0;
     public Text coinText;
@@ -29,12 +30,12 @@ public class player : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
     }
 
-
-    void Start()
-    {
+    //animation sprites code with array
+    //void Start()
+    //{
         
-        InvokeRepeating("AnimateSprite",0.15f,0.15f);
-    }
+    //    InvokeRepeating("AnimateSprite",0.15f,0.15f);
+    //}
 
     private void OnEnable()
     {
@@ -68,10 +69,12 @@ public class player : MonoBehaviour
 
     }
 
+    //animation sprites code with array
+
     //private void AnimateSprite()
     //{
     //    spriteIndex++;
-    //    if(spriteIndex >= sprites.Length)
+    //    if (spriteIndex >= sprites.Length)
     //    {
     //        spriteIndex = 0;
     //    }
@@ -91,6 +94,7 @@ public class player : MonoBehaviour
         }
         else if (other.CompareTag("Coin"))
         {
+            playerAudio.PlayOneShot(coinSFX, 2.0f);
             coinCount++;
             coinText.text = "Coins: " + coinCount;
             Destroy(other.gameObject);
